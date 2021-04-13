@@ -60,21 +60,36 @@
   <div class="row mb-5">
     <div class="col-sm-4">
       Red
-      <input class="form-control" type="number" min="0" max="255" value="255">
+      <input class="form-control" type="number" min="0" max="255" value="255" step="10">
     </div>
     <div class="col-sm-4">
       Blue
-      <input class="form-control" type="number" min="0" max="255" value="255">
+      <input class="form-control" type="number" min="0" max="255" value="255" step="10">
     </div>
     <div class="col-sm-4">
       Green
-      <input class="form-control" type="number" min="0" max="255" value="255">
+      <input class="form-control" type="number" min="0" max="255" value="255" step="10">
     </div>
   </div>
 </div>
 <script src="https://unpkg.com/jquery"></script>
 <script>
   // Add your code here!
+
+  // RGB background color change in real time when values are changed 
+  $(".form-control").on("change", function(){
+    let red = $(".form-control").eq(0).val();
+    let blue = $(".form-control").eq(1).val();
+    let green = $(".form-control").eq(2).val();
+    $("body").css("background-color", `rgb(${red},${blue},${green})`);
+  })
+
+  // when image is clicken on, it is removed from the dom
+  $("img").on("click",function(){
+    this.remove()
+  })  
+
+
 </script>
 </body>
 
